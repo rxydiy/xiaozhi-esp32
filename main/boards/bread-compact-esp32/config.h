@@ -23,7 +23,7 @@
 #define AUDIO_I2S_GPIO_DOUT GPIO_NUM_7
 #endif
 
-// ========== 核心修改：ASR语音按键改为GPIO13，BOOT禁用 ==========
+// PTT语音按键 GPIO13，禁用BOOT、触摸按键
 #define BOOT_BUTTON_GPIO        GPIO_NUM_NC
 #define TOUCH_BUTTON_GPIO       GPIO_NUM_NC
 #define ASR_BUTTON_GPIO         GPIO_NUM_13
