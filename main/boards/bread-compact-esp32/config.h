@@ -23,10 +23,10 @@
 #define AUDIO_I2S_GPIO_DOUT GPIO_NUM_7
 #endif
 
-// 按键改成GPIO13，关闭触摸按键，解决松开绿灯不灭
-#define BOOT_BUTTON_GPIO        GPIO_NUM_13
+// ========== 核心修改：ASR语音按键改为GPIO13，BOOT禁用 ==========
+#define BOOT_BUTTON_GPIO        GPIO_NUM_NC
 #define TOUCH_BUTTON_GPIO       GPIO_NUM_NC
-#define ASR_BUTTON_GPIO         GPIO_NUM_34
+#define ASR_BUTTON_GPIO         GPIO_NUM_13
 
 #define BUILTIN_LED_GPIO        GPIO_NUM_2
 
