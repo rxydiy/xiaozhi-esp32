@@ -1,10 +1,14 @@
 #ifndef _BOARD_CONFIG_H_
 #define _BOARD_CONFIG_H_
+
 #include <driver/gpio.h>
+
 #define AUDIO_INPUT_SAMPLE_RATE  16000
 #define AUDIO_OUTPUT_SAMPLE_RATE 24000
+
 // 如果使用 Duplex I2S 模式，请注释下面一行
 #define AUDIO_I2S_METHOD_SIMPLEX
+
 #ifdef AUDIO_I2S_METHOD_SIMPLEX
 #define AUDIO_I2S_MIC_GPIO_WS   GPIO_NUM_22
 #define AUDIO_I2S_MIC_GPIO_SCK  GPIO_NUM_21
@@ -18,15 +22,21 @@
 #define AUDIO_I2S_GPIO_DIN  GPIO_NUM_6
 #define AUDIO_I2S_GPIO_DOUT GPIO_NUM_7
 #endif
-#define BOOT_BUTTON_GPIO        GPIO_NUM_5
-#define TOUCH_BUTTON_GPIO       GPIO_NUM_5 // 注意：touch引脚这里，我们不用触摸功能，不影响按键
+
+// 按键改成GPIO13，关闭触摸按键，解决松开绿灯不灭
+#define BOOT_BUTTON_GPIO        GPIO_NUM_13
+#define TOUCH_BUTTON_GPIO       GPIO_NUM_NC
 #define ASR_BUTTON_GPIO         GPIO_NUM_34
+
 #define BUILTIN_LED_GPIO        GPIO_NUM_2
+
 #define ML307_RX_PIN            GPIO_NUM_16
 #define ML307_TX_PIN            GPIO_NUM_17
+
 #define DISPLAY_SDA_PIN GPIO_NUM_4
 #define DISPLAY_SCL_PIN GPIO_NUM_15
 #define DISPLAY_WIDTH   128
+
 #if CONFIG_OLED_SSD1306_128X32
 #define DISPLAY_HEIGHT  32
 #elif CONFIG_OLED_SSD1306_128X64 || CONFIG_OLED_SH1106_128X64
@@ -34,8 +44,11 @@
 #else
 #error "OLED display type is not selected"
 #endif
+
 #define DISPLAY_MIRROR_X true
 #define DISPLAY_MIRROR_Y true
+
 // A MCP Test: Control a lamp
 #define LAMP_GPIO GPIO_NUM_18
+
 #endif // _BOARD_CONFIG_H_
