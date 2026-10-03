@@ -25,15 +25,17 @@
 #define AUDIO_I2S_GPIO_DOUT GPIO_NUM_25
 #endif
 
-// ========== 按键核心修改：长按按住录音，松开立即停止 ==========
+// ========== 按键核心修改：按住录音，松开立即停止 ==========
 #define BOOT_BUTTON_GPIO        GPIO_NUM_5
 #define BOOT_BUTTON_ACTIVE_LEVEL 0
-// 关键：BUTTON_MODE_HOLD 按住开启，松开结束；BUTTON_MODE_CLICK是单击触发
 #define BOOT_BUTTON_MODE BUTTON_MODE_HOLD
 
 // LED
 #define LED_GPIO_PIN            GPIO_NUM_4
 #define LED_ACTIVE_LEVEL        1
+
+// ========== CI强制需要的SH1106宏，硬件无屏，置false ==========
+#define CONFIG_OLED_SH1106_128X64 false
 
 // 关闭唤醒词，保留网页配网
 #define CONFIG_USE_WAKE_WORD    false
