@@ -25,7 +25,7 @@
 #define AUDIO_I2S_GPIO_DOUT GPIO_NUM_25
 #endif
 
-// ========== 按键核心修改：按住录音，松开立即停止 ==========
+// ========== 按键配置：GPIO5 按住录音松开停止 ==========
 #define BOOT_BUTTON_GPIO        GPIO_NUM_5
 #define BOOT_BUTTON_ACTIVE_LEVEL 0
 #define BOOT_BUTTON_MODE BUTTON_MODE_HOLD
@@ -34,7 +34,13 @@
 #define LED_GPIO_PIN            GPIO_NUM_4
 #define LED_ACTIVE_LEVEL        1
 
-// ========== CI强制需要的SH1106宏，硬件无屏，置false ==========
+// ========== 补齐 bread_board.cc 需要的宏！！ ==========
+#define BUILTIN_LED_GPIO        GPIO_NUM_4   // 和你的LED共用GPIO4
+#define LAMP_GPIO               GPIO_NUM_NC  // 不用灯，NC=未连接
+#define TOUCH_BUTTON_GPIO       GPIO_NUM_NC  // 无触摸按键
+#define ASR_BUTTON_GPIO         GPIO_NUM_NC  // 只用BOOT_BUTTON，ASR按键不用
+
+// ========== CI强制需要的SH1106宏，硬件无屏置false ==========
 #define CONFIG_OLED_SH1106_128X64 false
 
 // 关闭唤醒词，保留网页配网
