@@ -34,13 +34,21 @@
 #define LED_GPIO_PIN            GPIO_NUM_4
 #define LED_ACTIVE_LEVEL        1
 
-// ========== 补齐 bread_board.cc 需要的宏！！ ==========
-#define BUILTIN_LED_GPIO        GPIO_NUM_4   // 和你的LED共用GPIO4
-#define LAMP_GPIO               GPIO_NUM_NC  // 不用灯，NC=未连接
-#define TOUCH_BUTTON_GPIO       GPIO_NUM_NC  // 无触摸按键
-#define ASR_BUTTON_GPIO         GPIO_NUM_NC  // 只用BOOT_BUTTON，ASR按键不用
+// ========== bread_board.cc 必须的GPIO宏 ==========
+#define BUILTIN_LED_GPIO        GPIO_NUM_4
+#define LAMP_GPIO               GPIO_NUM_NC
+#define TOUCH_BUTTON_GPIO       GPIO_NUM_NC
+#define ASR_BUTTON_GPIO         GPIO_NUM_NC
 
-// ========== CI强制需要的SH1106宏，硬件无屏置false ==========
+// ========== OLED屏幕宏（无屏幕，引脚NC，补齐用于编译通过） ==========
+#define DISPLAY_SDA_PIN         GPIO_NUM_NC
+#define DISPLAY_SCL_PIN         GPIO_NUM_NC
+#define DISPLAY_WIDTH           128
+#define DISPLAY_HEIGHT          32
+#define DISPLAY_MIRROR_X        false
+#define DISPLAY_MIRROR_Y        false
+
+// ========== CI强制需要的SH1106宏 ==========
 #define CONFIG_OLED_SH1106_128X64 false
 
 // 关闭唤醒词，保留网页配网
